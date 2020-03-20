@@ -30,11 +30,11 @@ function [x1,v1,a1,x2,v2,a2] = RK2 (h,tFinal,m2,vel,fprop)
 		k3v1 = v1(i) + h*k2a1;
 		k3v2 = v2(i) + h*k2a2;
 		k3a1 = calcAceleracao1 ( x1(i) + h/2*k2v1, x2(i) + h/2*k2v2, k2v1, k2v2, m2, vel, fprop);
-		k3a2 = calcAceleracao2 ( x1(i) + h/2*k2v1, x2(i) + h/2*k2v2, k2v1, k2v2, k2a2, m2, vel, fprop);
+		k3a2 = calcAceleracao2 ( x1(i) + h/2*k2v1, x2(i) + h/2*k2v2, k2v1, k2v2, k3a1, m2, vel, fprop);
 		k4v1 = v1(i) + h*k3a1;
 		k4v2 = v2(i) + h*k3a2;
 		k4a1 = calcAceleracao1 ( x1(i) + h*k3v1, x2(i) + h*k3v2, k3v1, k3v2, m2, vel, fprop);
-		k4a2 = calcAceleracao2 ( x1(i) + h*k3v1, x2(i) + h*k3v2, k3v1, k3v2, k2a3, m2, vel, fprop);
+		k4a2 = calcAceleracao2 ( x1(i) + h*k3v1, x2(i) + h*k3v2, k3v1, k3v2, k4a1, m2, vel, fprop);
 
 		v1(i+1) = v1(i) + h/6*(k1a1 + 2*k2a1 + 2*k3a1 + k3a1);
 		v2(i+1) = v2(i) + h/6*(k1a2 + k2a2 + 2*k3a2 + k3a2);
