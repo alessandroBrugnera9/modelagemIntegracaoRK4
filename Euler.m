@@ -14,12 +14,14 @@ function [x1,v1,a1,x2,v2,a2] = Euler (h,tFinal,m2,vel,fprop)
 	v2(1)=-0.1;
 
 
-	for i = 1:passos-1
-		a1(i) = calcAceleracao1 ( x1, x2, v1, v2, m2, vel, fprop);
-		a2(i) = calcAceleracao2 ( x1, x2, v1, v2, m2, vel, fprop);
+	for i = 1:passos
+		a1(i) = calcAceleracao1 ( x1(i), x2(i), v1(i), v2(i), m2, vel, fprop);
+		a2(i) = calcAceleracao2 ( x1(i), x2(i), v1(i), v2(i), m2, vel, fprop);
 		v1(i+1) = v1(i) + h*a1(i);
 		v2(i+1) = v2(i) + h*a2(i);
 		x1(i+1) = x1(i) + h*v1(i);
 		x2(i+1) = x2(i) + h*v2(i);
 	end;
+	a1(passos+1) = calcAceleracao1 ( x1(passos+1), x2(passos+1), v1(passos+1), v2(passos+1), m2, vel, fprop);
+	a2(passos+1) = calcAceleracao2 ( x1(passos+1), x2(passos+1), v1(passos+1), v2(passos+1), m2, vel, fprop);
 end
