@@ -14,10 +14,9 @@ function a1 = calcAceleracao1 ( x1, x2, v1, v2, m2, vel, fprop)
 	F2 = -m2*g/2;
 
 
-
-	A0 = L1*L1*L2*R*( m2*cos(2*x1-2*x2) - 2*m1 - m2);
-	A1 = L1*L1*L2*R*m2*sin(2*x1-2*x2);
-	A2 = 2*L1*L2*L2*R*m2*sin(x1-x2);
+	A0 = L1^2*L2*R*( m2*cos(2*x1-2*x2) - 2*m1 - m2);
+	A1 = L1^2*L2*R*m2*sin(2*x1-2*x2);
+	A2 = 2*L1*L2^2*R*m2*sin(x1-x2);
 	A3 = -2*L2*miI*vel;
 	A4 = -2*L1*miI*vel*cos(x1-x2);
 	A5 = -R*L1*(L2e*F2*sin(x1-2*x2) + 2*sin(x1)*(F1*L2 + L2e*F2/2));

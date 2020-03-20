@@ -3,7 +3,7 @@ clear all;clc;close all;
 h = 0.001;
 m2 = 650;
 vel = 80/3.6;
-fprop = 1;
+fprop = -1;
 tFinal = 60;
 t = 0:h:tFinal;
 
