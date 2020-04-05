@@ -136,7 +136,7 @@ for h=[0.001 0.005 0.01 0.1 1]
 	ylabel('$\ddot{\theta}_{2} [rad/s^{2}]$', 'Interpreter','latex');
 	hold off
 
-	figure7 = figure(8);
+	figure8 = figure(8);
 	subplot(3,2,1);
 	title({'RK2', anot}, 'Interpreter','latex');
 	hold on
@@ -186,7 +186,7 @@ for h=[0.001 0.005 0.01 0.1 1]
 	ylabel('$\ddot{\theta}_{2} [rad/s^{2}]$', 'Interpreter','latex');
 	hold off
 
-	figure7 = figure(9);
+	figure9 = figure(9);
 	subplot(3,2,1);
 	title({'RK4', anot}, 'Interpreter','latex');
 	hold on
