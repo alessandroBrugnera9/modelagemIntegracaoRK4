@@ -31,7 +31,6 @@ for h=[0.001 0.005 0.01 0.1 1]
 	plot(t, RK4x2, 'g')
 	legend('Euler','RK2','RK4', 'Location','NW');
 	grid on
-	anot=sprintf('h = %0.0d', h);
 	title({'Compara\c{c}\~{a}o de $\theta_{2}$ com diferentes m\''etodos num\''ericos', anot}, 'Interpreter','latex');
 	hold off
 	xlabel('Tempo [s]', 'Interpreter','latex');
@@ -44,7 +43,6 @@ for h=[0.001 0.005 0.01 0.1 1]
 	plot(t, RK4v1, 'g')
 	legend('Euler','RK2','RK4', 'Location','NW');
 	grid on
-	anot=sprintf('h = %0.0d', h);
 	title({'Compara\c{c}\~{a}o de $\dot{\theta}_{1}$ com diferentes m\''etodos num\''ericos', anot}, 'Interpreter','latex');
 	hold off
 	xlabel('Tempo [s]', 'Interpreter','latex');
@@ -57,7 +55,6 @@ for h=[0.001 0.005 0.01 0.1 1]
 	plot(t, RK4v2, 'g')
 	legend('Euler','RK2','RK4', 'Location','NW');
 	grid on
-	anot=sprintf('h = %0.0d', h);
 	title({'Compara\c{c}\~{a}o de $\dot{\theta}_{2}$ com diferentes m\''etodos num\''ericos', anot}, 'Interpreter','latex');
 	hold off
 	xlabel('Tempo [s]', 'Interpreter','latex');
@@ -69,8 +66,7 @@ for h=[0.001 0.005 0.01 0.1 1]
 	plot(t, RK2a1, 'b')
 	plot(t, RK4a1, 'g')
 	legend('Euler','RK2','RK4', 'Location','NW');
-	grid on
-	anot=sprintf('h = %0.0d', h);
+	grid on	
 	title({'Compara\c{c}\~{a}o de $\ddot{\theta}_{1}$ com diferentes m\''etodos num\''ericos', anot}, 'Interpreter','latex');
 	hold off
 	xlabel('Tempo [s]', 'Interpreter','latex');
@@ -82,12 +78,164 @@ for h=[0.001 0.005 0.01 0.1 1]
 	plot(t, RK2a2, 'g')
 	plot(t, RK4a2, 'b')
 	legend('Euler','RK2','RK4', 'Location','NW');
-	grid on
-	anot=sprintf('h = %0.0d', h);
+	grid on	
 	title({'Compara\c{c}\~{a}o de $\ddot{\theta}_{2}$ com diferentes m\''etodos num\''ericos', anot}, 'Interpreter','latex');
 	hold off
 	xlabel('Tempo [s]', 'Interpreter','latex');
 	ylabel('$\ddot{\theta}_{2} [rad/s^{2}]$', 'Interpreter','latex');
+
+
+	%compilado em um gráfico
+	figure7 = figure(7);
+	subplot(3,2,1);
+	title({'Euler', anot}, 'Interpreter','latex');
+	hold on
+	plot(t, Eulerx1, 'g')
+	grid on
+	title({'Euler', anot,'$\theta_{1}$'}, 'Interpreter','latex');
+	ylabel('$\theta_{1} [rad]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,2);
+	hold on
+	plot(t, Eulerx2, 'g')
+	grid on	
+	title({'$\theta_{2}$'}, 'Interpreter','latex');
+	ylabel('$\theta_{2} [rad]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,3);
+	hold on
+	plot(t, Eulerv1, 'g')
+	grid on	
+	title({'$\dot{\theta}_{1}$'}, 'Interpreter','latex');
+	ylabel('$\dot{\theta}_{1} [rad/s]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,4);
+	hold on
+	plot(t, Eulerv2, 'g')
+	grid on	
+	title({'$\dot{\theta}_{2}$'}, 'Interpreter','latex');
+	ylabel('$\dot{\theta}_{2} [rad/s]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,5);
+	hold on
+	plot(t, Eulera1, 'g')
+	grid on	
+	title({'$\ddot{\theta}_{1}$'}, 'Interpreter','latex');
+	ylabel('$\ddot{\theta}_{1} [rad/s^{2}]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,6);
+	hold on
+	plot(t, Eulera2, 'g')
+	grid on	
+	title({'$\ddot{\theta}_{2}$'}, 'Interpreter','latex');
+	ylabel('$\ddot{\theta}_{2} [rad/s^{2}]$', 'Interpreter','latex');
+	hold off
+
+	figure7 = figure(8);
+	subplot(3,2,1);
+	title({'RK2', anot}, 'Interpreter','latex');
+	hold on
+	plot(t, RK2x1, 'g')
+	grid on
+	title({'RK2', anot,'$\theta_{1}$'}, 'Interpreter','latex');
+	ylabel('$\theta_{1} [rad]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,2);
+	hold on
+	plot(t, RK2x2, 'g')
+	grid on	
+	title({'$\theta_{2}$'}, 'Interpreter','latex');
+	ylabel('$\theta_{2} [rad]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,3);
+	hold on
+	plot(t, RK2v1, 'g')
+	grid on	
+	title({'$\dot{\theta}_{1}$'}, 'Interpreter','latex');
+	ylabel('$\dot{\theta}_{1} [rad/s]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,4);
+	hold on
+	plot(t, RK2v2, 'g')
+	grid on	
+	title({'$\dot{\theta}_{2}$'}, 'Interpreter','latex');
+	ylabel('$\dot{\theta}_{2} [rad/s]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,5);
+	hold on
+	plot(t, RK2a1, 'g')
+	grid on	
+	title({'$\ddot{\theta}_{1}$'}, 'Interpreter','latex');
+	ylabel('$\ddot{\theta}_{1} [rad/s^{2}]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,6);
+	hold on
+	plot(t, RK2a2, 'g')
+	grid on	
+	title({'$\ddot{\theta}_{2}$'}, 'Interpreter','latex');
+	ylabel('$\ddot{\theta}_{2} [rad/s^{2}]$', 'Interpreter','latex');
+	hold off
+
+	figure7 = figure(9);
+	subplot(3,2,1);
+	title({'RK4', anot}, 'Interpreter','latex');
+	hold on
+	plot(t, RK4x1, 'g')
+	grid on
+	title({'RK4', anot,'$\theta_{1}$'}, 'Interpreter','latex');
+	ylabel('$\theta_{1} [rad]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,2);
+	hold on
+	plot(t, RK4x2, 'g')
+	grid on	
+	title({'$\theta_{2}$'}, 'Interpreter','latex');
+	ylabel('$\theta_{2} [rad]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,3);
+	hold on
+	plot(t, RK4v1, 'g')
+	grid on	
+	title({'$\dot{\theta}_{1}$'}, 'Interpreter','latex');
+	ylabel('$\dot{\theta}_{1} [rad/s]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,4);
+	hold on
+	plot(t, RK4v2, 'g')
+	grid on	
+	title({'$\dot{\theta}_{2}$'}, 'Interpreter','latex');
+	ylabel('$\dot{\theta}_{2} [rad/s]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,5);
+	hold on
+	plot(t, RK4a1, 'g')
+	grid on	
+	title({'$\ddot{\theta}_{1}$'}, 'Interpreter','latex');
+	ylabel('$\ddot{\theta}_{1} [rad/s^{2}]$', 'Interpreter','latex');
+	hold off
+
+	subplot(3,2,6);
+	hold on
+	plot(t, RK4a2, 'g')
+	grid on	
+	title({'$\ddot{\theta}_{2}$'}, 'Interpreter','latex');
+	ylabel('$\ddot{\theta}_{2} [rad/s^{2}]$', 'Interpreter','latex');
+	hold off
+
 
 
 	saveas(figure1,sprintf('Theta1(h=%0.0d).jpg', h));
@@ -96,5 +244,8 @@ for h=[0.001 0.005 0.01 0.1 1]
 	saveas(figure4,sprintf('Theta21ponto(h=%0.0d).jpg', h));
 	saveas(figure5,sprintf('Theta12pontos(h=%0.0d).jpg', h));
 	saveas(figure6,sprintf('Theta22pontos(h=%0.0d).jpg', h));
+	saveas(figure7,sprintf('GraficosEuler(h=%0.0d).jpg', h));
+	saveas(figure8,sprintf('GraficosRK2(h=%0.0d).jpg', h));
+	saveas(figure9,sprintf('GraficosRK4(h=%0.0d).jpg', h));
 	clear all;clc;close all;
 end
